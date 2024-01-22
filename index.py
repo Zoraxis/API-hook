@@ -14,7 +14,7 @@ def getLangData(text):
     return response
 
 @app.route('/lang-detect', methods=['POST'])
-def handle_post():
+def handle_get_lang():
     data = request.get_json()
     text = data["detailedMessage"]["text"]
     response = getLangData(text)
