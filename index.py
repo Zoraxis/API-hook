@@ -1,29 +1,32 @@
 from flask import Flask, request, jsonify
-from lingua import Language, LanguageDetectorBuilder
 
-languages = [Language.ENGLISH, Language.GERMAN]
-detector = LanguageDetectorBuilder.from_languages(*languages).build()
+from html_utils import strip_tags
+from language_detector import getLangData
+from api_service import fetchAPI
 
 app = Flask(__name__)
 
-def getLangData(text):
-    confidence = detector.compute_language_confidence_values(text)[0]
-    isEnglish = confidence.language == Language.ENGLISH
-    response = {"isEnglish": isEnglish, "language": confidence.language.name, "confidence": confidence.value}
-    print(response)
-    return response
-
-@app.route('/lang-detect', methods=['POST'])
-def handle_get_lang():
+@app.route("/lang-detect", methods=["POST"])
+def handle_post():
+    # get work item id
     data = request.get_json()
-    text = data["detailedMessage"]["text"]
-    response = getLangData(text)
-    return jsonify(response), 200
+    workId = data["resource"]["id"]
 
-@app.route('/', methods=['GET'])
-def handle_get():
-    data = {"message": "TEST"} 
-    return jsonify(data), 200
+    # get work item description
+    fetchedWork = fetchAPI("GET", workId, "&$expand=all")
+    print("🚀 ~ fetchedWork:", fetchedWork)
+    text = strip_tags(fetchedWork["fields"]["System.Description"])
 
-if __name__ == '__main__':
+    # detect language
+    lang_data = getLangData(text)
+
+    # if language is not english
+    if lang_data["confidence"] > 0.7 and not lang_data["isEnglish"]:
+        # add tag
+        fetchAPI("PATCH", workId, "", [{"op": "add", "path": "/fields/System.Tags", "value": "Lang"}])
+
+    return jsonify(lang_data), 200
+
+
+if __name__ == "__main__":
     app.run(port=5000, debug=True)

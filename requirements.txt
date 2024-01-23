@@ -15,6 +15,7 @@ conda_package_streaming @ file:///C:/b/abs_6c28n38aaj/croot/conda-package-stream
 cryptography @ file:///C:/b/abs_e8cnom_zw_/croot/cryptography_1702071486468/work
 distro @ file:///C:/b/abs_a3uni_yez3/croot/distro_1701455052240/work
 Flask==3.0.1
+HTMLParser==0.0.2
 idna @ file:///C:/ci_311/idna_1676424932545/work
 itsdangerous==2.1.2
 Jinja2==3.1.3
