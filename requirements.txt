@@ -32,6 +32,7 @@ pycosat @ file:///C:/b/abs_31zywn1be3/croot/pycosat_1696537126223/work
 pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
 pyOpenSSL @ file:///C:/b/abs_08f38zyck4/croot/pyopenssl_1690225407403/work
 PySocks @ file:///C:/ci_311/pysocks_1676425991111/work
+python-dotenv==1.0.1
 requests @ file:///C:/b/abs_316c2inijk/croot/requests_1690400295842/work
 ruamel.yaml @ file:///C:/ci_311/ruamel.yaml_1676439214109/work
 tqdm @ file:///C:/b/abs_f76j9hg7pv/croot/tqdm_1679561871187/work

@@ -11,14 +11,11 @@ def handle_create():
     # get work item id
     data = request.get_json()
     workId = data["resource"]["id"]
-    print("🚀 ~ handle_create ~ workId", workId)
 
     # get work item description
     fetchedWork = fetchAPI("GET", workId, "&$expand=all")
-    print("🚀 ~ handle_create ~ fetchedWork", fetchedWork)
     text = strip_tags(fetchedWork["fields"]["System.Description"])
 
-    print("🚀 ~ handle_create ~ text", text)
     # if language is not acceptable
     if isLanguageFalse(text):
         # add tag
