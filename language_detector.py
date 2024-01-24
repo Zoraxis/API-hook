@@ -8,11 +8,13 @@ confidence_min = 0.7
 def isLanguageFalse(text):
     # if less than 30 words, return false
     words = len(text.split())
+    print(len)
     if words < 30:
         return False
     
     # detect language
     langData = getLangData(text)
+    print(langData)
 
     # if language is not english, return true
     if langData["confidence"] > confidence_min and not langData["isEnglish"]:
