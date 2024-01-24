@@ -1,33 +1,21 @@
 from flask import Flask, request, jsonify
 
-from html_utils import strip_tags
-from language_detector import isLanguageFalse
-from api_service import fetchAPI
+from services.routing_service import handle_work_create
 
 app = Flask(__name__)
 
 @app.route("/lang-detect", methods=["POST"])
 def handle_create():
-    # get work item id
     data = request.get_json()
-    workId = data["resource"]["id"]
+    response = handle_work_create(data)
 
-    # get work item description
-    fetchedWork = fetchAPI("GET", workId, "&$expand=all")
-    text = strip_tags(fetchedWork["fields"]["System.Description"])
-
-    # if language is not acceptable
-    if isLanguageFalse(text):
-        # add tag
-        fetchAPI("PATCH", workId, "", [{"op": "add", "path": "/fields/System.Tags", "value": "Lang"}])
-
-    return text, 200
+    return response, 200
 
 @app.route("/lang-detect/update", methods=["POST"])
 def handle_update():
     data = request.get_json()
-    print("🚀 ~ handle_update")
-    return 'handle_update', 200
+    response = handle_work_create(data)
+    return response, 200
 
 
 if __name__ == "__main__":
