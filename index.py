@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 
 from services.routing_service import handle_work_create
 
@@ -8,7 +8,6 @@ app = Flask(__name__)
 def handle_create():
     data = request.get_json()
     response = handle_work_create(data)
-
     return response, 200
 
 @app.route("/lang-detect/update", methods=["POST"])

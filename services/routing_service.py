@@ -1,3 +1,5 @@
+from flask import jsonify
+
 from services.html_service import strip_tags
 from services.language_service import isLanguageFalse
 from services.api_service import fetchAPI

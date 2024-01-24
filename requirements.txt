@@ -1,4 +1,4 @@
-archspec @ file:///croot/archspec_1697725767277/work
+archspec @ git+https://github.com/archspec/archspec.git
 blinker==1.7.0
 boltons @ file:///C:/ci_311/boltons_1677729932371/work
 Brotli @ file:///C:/ci_311/brotli-split_1676435766766/work
