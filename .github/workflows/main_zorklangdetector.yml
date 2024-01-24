@@ -70,6 +70,6 @@ jobs:
           app-name: 'zorklangdetector'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          scm-do-build-during-deployment: true
-          enable-oryx-build: true
+          scm-do-build-during-deployment: false
+          enable-oryx-build: false
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ABE1531F474346B68ACB1C985824877B }}
