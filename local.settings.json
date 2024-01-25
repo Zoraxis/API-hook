@@ -1,0 +1,17 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+      "FUNCTIONS_WORKER_RUNTIME": "<language worker>",
+      "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=langdetectorstorage;AccountKey=7G5nCQBtiz2W/KDQCMvhIIhme0n+6jWb/PIveO7oAILIvexjbeE1E1Vk4ScWhexUx/n1jSHCLT4s+AStNwDgww==;EndpointSuffix=core.windows.net",
+      "MyBindingConnection": "<binding-connection-string>",
+      "AzureWebJobs.HttpExample.Disabled": "true"
+    },
+    "Host": {
+      "LocalHttpPort": 7071,
+      "CORS": "*",
+      "CORSCredentials": false
+    },
+    "ConnectionStrings": {
+      "SQLConnectionString": "<sqlclient-connection-string>"
+    }
+  }

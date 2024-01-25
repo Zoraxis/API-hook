@@ -1,3 +1,4 @@
 .env
 .azure.env
 index.py
+host.json
