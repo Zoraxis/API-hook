@@ -1,6 +1,8 @@
-from azure import function_app as app, func
+from azure.functions import func
 
 from services.routing_service import handle_work_create
+
+app = func.FunctionApp()
 
 @app.function_name(name="HttpTrigger1")
 @app.route(route="lang-detect")
