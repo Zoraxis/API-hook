@@ -3,7 +3,7 @@ from azure import function_app as app, func
 from services.routing_service import handle_work_create
 
 @app.function_name(name="HttpTrigger1")
-@app.route(route="/lang-detect")
+@app.route(route="lang-detect")
 def handle_create(req: func.HttpRequest):
     data = req.params.get('body')
     # response = handle_work_create(data)
