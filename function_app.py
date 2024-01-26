@@ -1,12 +1,5 @@
 # import azure.functions as func
 # import logging
-import sys
-from sys import path
-import os
-import logging
-
-dir_path = os.path.dirname(os.path.realpath(__file__))
-sys.path.insert(0, dir_path)
 
 # app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
@@ -21,8 +14,8 @@ sys.path.insert(0, dir_path)
 #              status_code=200
 #         )
 
+import logging
 import azure.functions as func
-from __app__.services import routing_service
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
