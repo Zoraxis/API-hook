@@ -22,7 +22,7 @@ sys.path.insert(0, dir_path)
 #         )
 
 import azure.functions as func
-from customServices.routing_service import handle_work_create
+from services import routing_service
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
