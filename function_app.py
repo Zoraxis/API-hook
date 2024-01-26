@@ -1,7 +1,7 @@
 # import azure.functions as func
 # import logging
 
-# from services.routing_service import handle_work_create
+from services.routing_service import handle_work_create
 
 # app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
