@@ -3,3 +3,8 @@
 # Manually managing azure-functions-worker may cause unexpected issues
 
 azure-functions
+
+azure-functions==1.18.0
+lingua-language-detector==2.0.2
+HTMLParser==0.0.2
+python-dotenv==1.0.1
