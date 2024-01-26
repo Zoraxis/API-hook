@@ -3,3 +3,4 @@ Flask==3.0.1
 lingua-language-detector==2.0.2
 python-dotenv==1.0.1
 Requests==2.31.0
+FlaskApp==1.0.5
