@@ -1,7 +1,12 @@
 # import azure.functions as func
 # import logging
+import sys
+from sys import path
+import os
 
-from .services.routing_service import handle_work_create
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.insert(0, dir_path)
+from services.routing_service import handle_work_create
 
 # app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
