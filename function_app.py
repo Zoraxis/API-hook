@@ -1,7 +1,7 @@
 import logging
 import azure.functions as func
 
-import routing_service
+import settings
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
@@ -9,9 +9,8 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
     req_body = req.get_json()
-    response = routing_service.handle_work_create(req_body)
 
     return func.HttpResponse(
-             response,
+             "dwd",
              status_code=200
         )
