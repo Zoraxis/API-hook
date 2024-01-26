@@ -1,7 +1,7 @@
 import logging
 import azure.functions as func
 
-import settings
+from . import settings
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
