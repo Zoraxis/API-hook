@@ -1,5 +1,3 @@
-from flask import jsonify
-
 from services import html_service
 from services import language_service
 from services import api_service
