@@ -14,6 +14,8 @@
 #              status_code=200
 #         )
 
+from services import routing_service
+
 import logging
 import azure.functions as func
 

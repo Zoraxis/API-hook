@@ -1,10 +1,10 @@
 import requests
 import base64
-from settings import getEnv
+import settings
 
-devopsURL = getEnv("DEVOPS_URL")
-apiURL = getEnv("DEVOPS_VERSION")
-PAT = getEnv("DEVOPS_PAT")
+devopsURL = settings.getEnv("DEVOPS_URL")
+apiURL = settings.getEnv("DEVOPS_VERSION")
+PAT = settings.getEnv("DEVOPS_PAT")
 
 PAT_encoded = base64.b64encode((":" + PAT).encode()).decode()
 

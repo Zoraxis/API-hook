@@ -1,10 +1,10 @@
 import os
-from os.path import join, dirname
-from dotenv import load_dotenv
+from os import path
+import dotenv
 
 
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
+dotenv_path = path.join(path.dirname(__file__), '.env')
+dotenv.load_dotenv(dotenv_path)
 
 def getEnv(key):
     return os.environ.get(key)

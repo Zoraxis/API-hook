@@ -1,16 +1,16 @@
 from lingua import Language, LanguageDetectorBuilder
-from settings import getEnv
+import settings
 
 languages = [Language.ENGLISH, Language.GERMAN]
 detector = LanguageDetectorBuilder.from_all_languages().with_preloaded_language_models().build()
 # detector = LanguageDetectorBuilder.from_languages(*languages).with_preloaded_language_models().build()
 
 # get settings
-min_confidence = float(getEnv("LANG_MIN_CONFIDENCE"))
-min_percent = float(getEnv("LANG_MIN_PERCENT"))
-min_length = int(getEnv("LANG_MIN_LENGTH"))
-allowed_languages = getEnv("LANG_ALLOWED_LIST").split()
-deep_filter = getEnv("LANG_DEEP")
+min_confidence = float(settings.getEnv("LANG_MIN_CONFIDENCE"))
+min_percent = float(settings.getEnv("LANG_MIN_PERCENT"))
+min_length = int(settings.getEnv("LANG_MIN_LENGTH"))
+allowed_languages = settings.getEnv("LANG_ALLOWED_LIST").split()
+deep_filter = settings.getEnv("LANG_DEEP")
 
 def isLanguageFalse(text):
     # if less than 30 words, return false

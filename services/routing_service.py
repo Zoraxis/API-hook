@@ -1,25 +1,25 @@
 from flask import jsonify
 
-from services.html_service import strip_tags
-from services.language_service import isLanguageFalse
-from services.api_service import fetchAPI
-from settings import getEnv
+from services import html_service
+from services import language_service
+from services import api_service
+import settings
 
-field = getEnv("PATCH_FIELD")
-value = getEnv("PATCH_VALUE")
+field = settings.getEnv("PATCH_FIELD")
+value = settings.getEnv("PATCH_VALUE")
 
 def handle_work_create(data):
     # get work item id
     workId = data["resource"]["id"]
 
     # get work item description
-    fetchedWork = fetchAPI("GET", workId, "&$expand=all")
-    text = strip_tags(fetchedWork["fields"]["System.Description"])
+    fetchedWork = api_service.fetchAPI("GET", workId, "&$expand=all")
+    text = html_service.strip_tags(fetchedWork["fields"]["System.Description"])
 
     # if language is not acceptable
-    if isLanguageFalse(text):
+    if language_service.isLanguageFalse(text):
         # add tag
-        fetchAPI("PATCH", workId, "", [
+        api_service.fetchAPI("PATCH", workId, "", [
             {
                 "op": "add", 
                 "path": f"/fields/{field}", 
